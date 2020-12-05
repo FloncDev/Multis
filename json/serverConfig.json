@@ -1,0 +1,6 @@
+{
+    "serverID":{
+        "prefix": ["!"],
+        "suggestionChannel": 123
+    }
+}

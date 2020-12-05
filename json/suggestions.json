@@ -1,0 +1,12 @@
+{
+    "serverId":[
+        {
+            "title": "Title goes here.",
+            "body":"Body goes here",
+            "messageId": 123,
+            "authorId": 123,
+            "upvotes": 0,
+            "downvotes": 0
+        }
+    ]
+}
