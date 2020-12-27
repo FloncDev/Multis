@@ -3,12 +3,24 @@
     "prefix": [
       "!"
     ],
-    "suggestionChannel": 123
+    "suggestionChannel": 123,
+    "upvoteEmoji": null,
+    "downvoteEmoji": null
   },
   "741417432823890030": {
     "prefix": [
       "!"
     ],
-    "suggestionChannel": null
+    "suggestionChannel": null,
+    "upvoteEmoji": null,
+    "downvoteEmoji": null
+  },
+  "792862963525877800": {
+    "prefix": [
+      "!"
+    ],
+    "suggestionChannel": null,
+    "upvoteEmoji": null,
+    "downvoteEmoji": null
   }
 }

@@ -18,4 +18,4 @@ for filename in os.listdir("./commands"): # Just loads all the commands in the c
     if filename.endswith(".py"):      # To make your own commands just copy the template file.
         client.load_extension(f"commands.{filename[:-3]}")
 
-client.run("NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.2VV0k9dVgoiUXEBhTMfrBBOP3DE") # Put your own token here (Don't share it!)
+client.run("no") # Put your own token here (Don't share it!)

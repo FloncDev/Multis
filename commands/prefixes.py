@@ -59,7 +59,9 @@ class cog(commands.Cog):
 
         data[guild.id] = {
             "prefix": ["!"],
-            "suggestionChannel": None
+            "suggestionChannel": None,
+            "upvoteEmoji": None,
+            "downvoteEmoji": None
         }
 
         with open("json/serverConfig.json", "w") as output:
