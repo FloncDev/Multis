@@ -7,8 +7,12 @@ class cog(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
-    async def prefixList(self, ctx):
+    @commands.group()
+    async def prefix(self, ctx):
+        pass
+
+    @prefix.command()
+    async def list(self, ctx):
         data = json.load(open("json/serverConfig.json", "r"))
         output = ""
 
@@ -17,32 +21,32 @@ class cog(commands.Cog):
 
         await ctx.send(f"```{output}```")
 
-    @commands.command()
-    async def prefixAdd(self, ctx, prefix: str=None):
+    @prefix.command()
+    async def add(self, ctx, prefix: str=None):
         if prefix != None:
             data = json.load(open("json/serverConfig.json", "r"))
 
             data[str(ctx.guild.id)]["prefix"].append(prefix)
 
-            with open("json/serverConfig.json", "r") as output:
+            with open("json/serverConfig.json", "w") as output:
                 json.dump(data, output, indent=2)
 
-            await ctx.send(f"Added {prefix} as a prefix.")
+            await ctx.send(f"Added `{prefix}` as a prefix.")
 
         else:
             await ctx.send("Please enter a prefix.")
 
-    @commands.command()
-    async def prefixRemove(self, ctx, prefix: str=None):
+    @prefix.command()
+    async def remove(self, ctx, prefix: str=None):
         if prefix != None:
             data = json.load(open("json/serverConfig.json", "r"))
 
             data[str(ctx.guild.id)]["prefix"].pop(data[str(ctx.guild.id)]["prefix"].index(prefix))
 
-            with open("json/serverConfig.json", "r") as output:
+            with open("json/serverConfig.json", "w") as output:
                 json.dump(data, output, indent=2)
 
-            await ctx.send(f"Removed {prefix} as a prefix.")
+            await ctx.send(f"Removed `{prefix}` as a prefix.")
 
         else:
             await ctx.send("Please enter a prefix.")
@@ -53,19 +57,19 @@ class cog(commands.Cog):
     async def on_guild_join(self, guild):
         data = json.load(open("json/serverConfig.json", "r"))
 
-        data.append({
-            "prefix": "!",
+        data[guild.id] = {
+            "prefix": ["!"],
             "suggestionChannel": None
-        })
+        }
 
-        with open("json/serverConfig.json", "r") as output:
+        with open("json/serverConfig.json", "w") as output:
             json.dump(data, output, indent=2)
 
     @commands.Cog.listener()
     async def on_guild_remove(self, guild):
         data = json.load(open("json/serverConfig.json", "r"))
 
-        with open("json/serverConfig.json", "r") as output:
+        with open("json/serverConfig.json", "w") as output:
             json.dump(data, output, indent=2)
 
 def setup(client):

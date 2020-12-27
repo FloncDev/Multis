@@ -1,6 +1,14 @@
 {
-    "serverID":{
-        "prefix": ["!"],
-        "suggestionChannel": 123
-    }
+  "serverID": {
+    "prefix": [
+      "!"
+    ],
+    "suggestionChannel": 123
+  },
+  "741417432823890030": {
+    "prefix": [
+      "!"
+    ],
+    "suggestionChannel": null
+  }
 }
