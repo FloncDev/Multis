@@ -2,6 +2,10 @@ import discord
 from discord.ext import commands
 import json
 
+def loadJson():
+        data = json.loads(open("json/serverConfig.json", "r").read())
+        return data
+
 class cog(commands.Cog):
 
     def __init__(self, client):
@@ -13,7 +17,7 @@ class cog(commands.Cog):
 
     @prefix.command()
     async def list(self, ctx):
-        data = json.load(open("json/serverConfig.json", "r"))
+        data = loadJson()
         output = ""
 
         for prefix in data[str(ctx.guild.id)]["prefix"]:
@@ -24,7 +28,7 @@ class cog(commands.Cog):
     @prefix.command()
     async def add(self, ctx, prefix: str=None):
         if prefix != None:
-            data = json.load(open("json/serverConfig.json", "r"))
+            data = loadJson()
 
             data[str(ctx.guild.id)]["prefix"].append(prefix)
 
@@ -39,7 +43,7 @@ class cog(commands.Cog):
     @prefix.command()
     async def remove(self, ctx, prefix: str=None):
         if prefix != None:
-            data = json.load(open("json/serverConfig.json", "r"))
+            data = loadJson()
 
             data[str(ctx.guild.id)]["prefix"].pop(data[str(ctx.guild.id)]["prefix"].index(prefix))
 
@@ -55,13 +59,14 @@ class cog(commands.Cog):
     # Events, remove and add guilds from the json file.
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
-        data = json.load(open("json/serverConfig.json", "r"))
+        data = loadJson()
 
         data[guild.id] = {
             "prefix": ["!"],
             "suggestionChannel": None,
             "upvoteEmoji": None,
-            "downvoteEmoji": None
+            "downvoteEmoji": None,
+            "economy": False
         }
 
         with open("json/serverConfig.json", "w") as output:
@@ -69,7 +74,7 @@ class cog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_guild_remove(self, guild):
-        data = json.load(open("json/serverConfig.json", "r"))
+        data = loadJson()
 
         with open("json/serverConfig.json", "w") as output:
             json.dump(data, output, indent=2)

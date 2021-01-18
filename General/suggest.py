@@ -51,53 +51,7 @@ class cog(commands.Cog):
     @suggestions.command()
     async def respond(self, ctx, id, *, response):
         data, suggestions = loadJson()
-    
-    @group()
-    @commands.has_permissions(manage_channels=True)
-    async def setup(self, ctx):
-        await ctx.send("PleASe")
 
-    @setup.command()
-    @commands.has_permissions(manage_channels=True)
-    async def suggestion_channel(self, ctx, channel):
-        data, suggestions = loadJson()
-        data[str(ctx.guild.id)]["suggestionChannel"] = int(channel[2:-1])
-        channel = self.client.get_channel(int(channel[2:-1]))
-
-        await ctx.send(f"Set {channel.mention} as the suggestion channel")
-
-        with open("json/serverConfig.json", "w") as output:
-            json.dump(data, output, indent=2)
-
-    @setup.command()
-    @commands.has_permissions(manage_channels=True)
-    async def suggestion_upvote(self, ctx, emoji):
-        data, suggestions = loadJson()
-        if len(emoji) == 1:
-            data[str(ctx.guild.id)]["upvoteEmoji"] = emoji
-
-        else:
-            data[str(ctx.guild.id)]["upvoteEmoji"] = emoji[1:-1]
-
-        await ctx.send(f"Set {emoji} as the upvote emoji")
-
-        with open("json/serverConfig.json", "w") as output:
-            json.dump(data, output, indent=2)
-
-    @setup.command()
-    @commands.has_permissions(manage_channels=True)
-    async def suggestion_downvote(self, ctx, emoji):
-        data, suggestions = loadJson()
-        if len(emoji) == 1:
-            data[str(ctx.guild.id)]["downvoteEmoji"] = emoji
-
-        else:
-            data[str(ctx.guild.id)]["downvoteEmoji"] = emoji[1:-1]
-
-        await ctx.send(f"Set {emoji} as the downvote emoji")
-
-        with open("json/serverConfig.json", "w") as output:
-            json.dump(data, output, indent=2)
 
 def setup(client):
     client.add_cog(cog(client))

@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 import os
 import json
+import asyncio
 
 # Gets all the servers custom prefixes.
 def getPrefixes(client, message):
@@ -14,8 +15,36 @@ def getPrefixes(client, message):
 intents = discord.Intents(members=True, guilds=True, emojis=True, messages=True, reactions=True)
 client = commands.Bot(command_prefix=getPrefixes, help_command=None, intents=intents)
 
-for filename in os.listdir("./commands"): # Just loads all the commands in the commands folder.
-    if filename.endswith(".py"):      # To make your own commands just copy the template file.
-        client.load_extension(f"commands.{filename[:-3]}")
+# Loads all the commands
+def LoadFolder(folder: str):
+    for filename in os.listdir(f"./{folder}"): # Just loads all the commands in the General folder
+        if filename.endswith(".py"):           # To make your own commands just copy the template file.
+            client.load_extension(f"{folder}.{filename[:-3]}")
 
-client.run("no") # Put your own token here (Don't share it!)
+def UnloadFolder(folder: str):
+    for filename in os.listdir(f"./{folder}"):
+        if filename.endswith(".py"):
+            client.unload_extension(f"{folder}.{filename[:-3]}")
+
+for folder in ["Administration", "Economy", "General", "Moderation", "Developer"]:
+    LoadFolder(folder)
+
+# Reloads the bot without restarting it.
+@client.command()
+async def reload(ctx):
+    for folder in ["Administration", "Economy", "General", "Moderation", "Developer"]:
+        try:
+            UnloadFolder(folder)
+        except:
+            pass
+        
+        try:
+            LoadFolder(folder)
+        except:
+            pass
+
+    message = await ctx.send("Bot reloaded.")
+    await asyncio.sleep(2)
+    await message.delete()
+
+client.run("NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.PtYVvA0Dn2DlhRz4U11MEi4twOU") # Put your own token here (Don't share it!)
