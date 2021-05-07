@@ -1,5 +1,6 @@
 # Library Import
 import discord
+from discord.errors import ClientException
 from discord.ext import commands
 import os
 import json
@@ -47,4 +48,7 @@ async def reload(ctx):
     await asyncio.sleep(2)
     await message.delete()
 
-client.run("NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.PtYVvA0Dn2DlhRz4U11MEi4twOU") # Put your own token here (Don't share it!)
+try:
+    client.run("NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.YcFv2njEVHvlVAqAphtdokjP0ZA") # Put your own token here (Don't share it!)
+except ClientException:
+    print("Token is invalid. Please enter a new one")

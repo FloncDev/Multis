@@ -16,6 +16,7 @@ class cog(commands.Cog):
         pass
 
     @prefix.command()
+    @commands.has_permissions(administrator=True)
     async def list(self, ctx):
         data = loadJson()
         output = ""
@@ -26,6 +27,7 @@ class cog(commands.Cog):
         await ctx.send(f"```{output}```")
 
     @prefix.command()
+    @commands.has_permissions(administrator=True)
     async def add(self, ctx, prefix: str=None):
         if prefix != None:
             data = loadJson()
@@ -41,6 +43,7 @@ class cog(commands.Cog):
             await ctx.send("Please enter a prefix.")
 
     @prefix.command()
+    @commands.has_permissions(administrator=True)
     async def remove(self, ctx, prefix: str=None):
         if prefix != None:
             data = loadJson()
@@ -66,7 +69,9 @@ class cog(commands.Cog):
             "suggestionChannel": None,
             "upvoteEmoji": None,
             "downvoteEmoji": None,
-            "economy": False
+            "economy": False,
+            "pinChannel": None,
+            "pinAmount": None
         }
 
         with open("json/serverConfig.json", "w") as output:

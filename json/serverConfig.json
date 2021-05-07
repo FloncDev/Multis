@@ -6,6 +6,8 @@
     "suggestionChannel": null,
     "upvoteEmoji": null,
     "downvoteEmoji": null,
-    "economy": false
+    "economy": false,
+    "pinChannel": "840276385355268136",
+    "pinAmount": 1
   }
 }
