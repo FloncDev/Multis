@@ -8,14 +8,14 @@ Not amazing with discord py so just try understand my spaghetti code and have fu
 ## To-Do
 
  - [x] Per-Server Prefixes
- - [ ] Suggest commands
+ - [x] Suggest commands
  - [ ] Pins
  - [ ] Moderation
  - [ ] Upgrade from json to actual db's (Hopefully in cloud)
  - [ ] Currency Conversion
  - [ ] Logo
  - [ ] Reaction Roles
- - [ ] Find 24/7 hosting or host on Raspberry pi
+ - [x] Find 24/7 hosting or host on Raspberry pi
  - [ ] + More
 
 #### Notice
