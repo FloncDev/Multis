@@ -49,6 +49,6 @@ async def reload(ctx):
     await message.delete()
 
 try:
-    client.run("NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.YcFv2njEVHvlVAqAphtdokjP0ZA") # Put your own token here (Don't share it!)
+    client.run("NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.QD3fmhoUPMa5bUDTYTn2pvCW1NQ") # Put your own token here (Don't share it!)
 except ClientException:
     print("Token is invalid. Please enter a new one")

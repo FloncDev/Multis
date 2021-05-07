@@ -9,5 +9,16 @@
     "economy": false,
     "pinChannel": "840276385355268136",
     "pinAmount": 1
+  },
+  "716611500256657469": {
+    "prefix": [
+      "!"
+    ],
+    "suggestionChannel": null,
+    "upvoteEmoji": null,
+    "downvoteEmoji": null,
+    "economy": false,
+    "pinChannel": null,
+    "pinAmount": null
   }
 }

@@ -21,7 +21,7 @@ class cog(commands.Cog):
     @group()
     @commands.has_permissions(manage_channels=True)
     async def config(self, ctx):
-        pass # [TO-DO] Make this a small help command showing all availible settings
+        await ctx.send("```diff\n+ Availible config options\n- suggestion_channel\n- upvote\n- downvote\n- economy\n- pin_channel\n- pin_emoji_amount```") # [TO-DO] Make this a small help command showing all availible settings
 
     @config.command()
     @commands.has_permissions(manage_channels=True)

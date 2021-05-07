@@ -73,7 +73,7 @@ class cog(commands.Cog):
             image = None
         
         pinChannel = ctx.guild.get_channel(channelId)
-        if len(message.clean_content) < 1950:
+        if len(message.clean_content) < 256:
             embed = discord.Embed(title=message.clean_content, description=f"[Link]({message.jump_url})", colour=member.colour) # Yes, i'm britsh and spell it colour.
             if image != None: embed.set_image(url=image)
             embed.set_author(name=user, icon_url=user.avatar_url)

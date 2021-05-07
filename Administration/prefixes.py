@@ -13,7 +13,7 @@ class cog(commands.Cog):
 
     @commands.group()
     async def prefix(self, ctx):
-        pass
+        await ctx.send("```diff\n+ Availible sub-commands\n- list\n- add\n- remove```")
 
     @prefix.command()
     @commands.has_permissions(administrator=True)
