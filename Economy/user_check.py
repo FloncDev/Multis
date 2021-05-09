@@ -18,7 +18,9 @@ class Cog(commands.Cog):
         for guild in self.client.guilds:
             guildJson = data[str(guild.id)]
             for member in guild.members:
-                if not guildJson[str(member.id)]:
+                try:
+                    x = guildJson[str(member.id)]
+                except:
                     guildJson[str(member.id)] = {
                         "balance": 100
                     }
