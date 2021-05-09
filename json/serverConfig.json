@@ -12,13 +12,14 @@
   },
   "716611500256657469": {
     "prefix": [
-      "!"
+      "!",
+      "s!"
     ],
-    "suggestionChannel": null,
-    "upvoteEmoji": null,
-    "downvoteEmoji": null,
+    "suggestionChannel": "720939526314393610",
+    "upvoteEmoji": ":upvote:741753512047935629",
+    "downvoteEmoji": ":downvote:741753584344891541",
     "economy": false,
-    "pinChannel": null,
-    "pinAmount": null
+    "pinChannel": "787508205634715679",
+    "pinAmount": 5
   }
 }

@@ -44,11 +44,9 @@ async def reload(ctx):
         except:
             pass
 
-    message = await ctx.send("Bot reloaded.")
-    await asyncio.sleep(2)
-    await message.delete()
+    await ctx.message.add_reaction("✅")
 
 try:
-    client.run("NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.QD3fmhoUPMa5bUDTYTn2pvCW1NQ") # Put your own token here (Don't share it!)
+    client.run("NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.oQPMy0B4ZIqQy8BqdELMN7VMd4o") # Put your own token here (Don't share it!)
 except ClientException:
     print("Token is invalid. Please enter a new one")

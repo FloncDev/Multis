@@ -13,7 +13,8 @@ class cog(commands.Cog):
 
     @commands.group()
     async def prefix(self, ctx):
-        await ctx.send("```diff\n+ Availible sub-commands\n- list\n- add\n- remove```")
+        if ctx.invoked_subcommand == None:
+            await ctx.send("```diff\n+ Availible sub-commands\n- list\n- add\n- remove```")
 
     @prefix.command()
     @commands.has_permissions(administrator=True)
@@ -64,6 +65,9 @@ class cog(commands.Cog):
     async def on_guild_join(self, guild):
         data = loadJson()
 
+        with open("json/suggestions.json", "w") as file:
+            suggestions = json.load(file)
+
         data[guild.id] = {
             "prefix": ["!"],
             "suggestionChannel": None,
@@ -73,6 +77,8 @@ class cog(commands.Cog):
             "pinChannel": None,
             "pinAmount": None
         }
+
+        file[guild.id] = {}
 
         with open("json/serverConfig.json", "w") as output:
             json.dump(data, output, indent=2)

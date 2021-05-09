@@ -40,7 +40,7 @@ class cog(commands.Cog):
         embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
 
-    @economy.command()
+    @economy.command(aliases=["="])
     @has_permissions(manage_channels=True)
     async def set(self, ctx, user=None, amount=None):
         data = loadJSON()

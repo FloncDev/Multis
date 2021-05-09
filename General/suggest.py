@@ -4,10 +4,17 @@ from discord.ext.commands.core import group
 import json
 
 def loadJson():
-        data = json.loads(open("json/serverConfig.json", "r").read())
-        suggestions = json.loads(open("json/suggestions.json", "r").read())
+        with open("json/serverConfig.json", "r") as file:
+            data = json.load(file)
+
+        with open("json/suggestions.json", "r") as file:
+            suggestions = json.load(file)
 
         return data, suggestions
+
+def write(suggestions):
+    with open("json/suggestions.json", "w") as file:
+        json.dump(suggestions, file, indent=2)
 
 class cog(commands.Cog):
 
@@ -17,10 +24,11 @@ class cog(commands.Cog):
     @commands.command()
     async def suggest(self, ctx, *, suggestion):
         data, suggestions = loadJson()
+        data = data[str(ctx.guild.id)]
 
-        if data[str(ctx.guild.id)]["suggestionChannel"] != None and data[str(ctx.guild.id)]["downvoteEmoji"] != None and data[str(ctx.guild.id)]["upvoteEmoji"] != None:
+        if data["suggestionChannel"] and data["downvoteEmoji"] and data["upvoteEmoji"]:
 
-            suggestionChannel = self.client.get_channel(data[str(ctx.guild.id)]["suggestionChannel"])
+            suggestionChannel = self.client.get_channel(int(data["suggestionChannel"]))
             member = ctx.guild.get_member(ctx.author.id)
 
             embed=discord.Embed(description=suggestion, colour=member.color)
@@ -29,16 +37,44 @@ class cog(commands.Cog):
 
             message = await suggestionChannel.send(embed=embed)
 
-            await message.add_reaction(data[str(ctx.guild.id)]["upvoteEmoji"])
-            await message.add_reaction(data[str(ctx.guild.id)]["downvoteEmoji"])
+            await message.add_reaction(data["upvoteEmoji"])
+            await message.add_reaction(data["downvoteEmoji"])
             await message.add_reaction("🚫")
 
             embed.set_footer(text=f"Message id: {message.id}")
 
             await message.edit(embed=embed)
 
+            suggestions[str(ctx.guild.id)][str(message.id)] = {
+                "body": suggestion,
+                "messageId": message.id,
+                "authorId": ctx.author.id
+            }
+
+
+            write(suggestions)
+
         else:
             await ctx.send("Please setup a suggestion channel, upvote emoji and downvote emoji.")
+
+    @commands.Cog.listener()
+    async def on_raw_reaction_add(self, payload):
+        data, suggestions = loadJson()
+        if payload.emoji.name == "🚫" and not self.client.get_user(payload.user_id).bot:
+            if data[str(payload.guild_id)]["suggestionChannel"] and data[str(payload.guild_id)]["downvoteEmoji"] and data[str(payload.guild_id)]["upvoteEmoji"]:
+                    if suggestions[str(payload.guild_id)][str(payload.message_id)]:
+                        channel = self.client.get_channel(int(data[str(payload.guild_id)]["suggestionChannel"]))
+                        message = channel.get_partial_message(payload.message_id)
+                        guild = self.client.get_guild(payload.guild_id)
+                        member = guild.get_member(payload.user_id)
+
+                        if channel.permissions_for(member).manage_messages or member.id == suggestions[str(guild.id)][str(payload.message_id)]["authorId"]:
+                            await message.delete()
+                            del suggestions[str(guild.id)][str(payload.message_id)]
+                            write(suggestions)
+
+                        else:
+                            await message.remove_reaction("🚫", member)
 
     @group()
     async def suggestions(self, ctx):

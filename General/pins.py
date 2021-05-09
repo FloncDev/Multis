@@ -24,8 +24,8 @@ class cog(commands.Cog):
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
         data, pins = getJson()
-        channelId = int(data[str(payload.guild_id)]["pinChannel"])
-        if channelId and data[str(payload.guild_id)]["pinAmount"]:
+        if data[str(payload.guild_id)]["pinChannel"] and data[str(payload.guild_id)]["pinAmount"]:
+            channelId = int(data[str(payload.guild_id)]["pinChannel"])
             if payload.channel_id != channelId and payload.emoji.name == "⭐":
                 if pins.get(str(payload.message_id), False) == False:
                     channel = self.client.get_channel(payload.channel_id)

@@ -21,16 +21,16 @@ class cog(commands.Cog):
     @group()
     @commands.has_permissions(manage_channels=True)
     async def config(self, ctx):
-        await ctx.send("```diff\n+ Availible config options\n- suggestion_channel\n- upvote\n- downvote\n- economy\n- pin_channel\n- pin_emoji_amount```") # [TO-DO] Make this a small help command showing all availible settings
+        if ctx.invoked_subcommand == None:
+            await ctx.send("```diff\n+ Availible config options\n- suggestion_channel\n- upvote\n- downvote\n- economy\n- pin_channel\n- pin_emoji_amount```") # [TO-DO] Make this a small help command showing all availible settings
 
     @config.command()
     @commands.has_permissions(manage_channels=True)
     async def suggestion_channel(self, ctx, channel):
         data, suggestions = await loadJson()
-        data[str(ctx.guild.id)]["suggestionChannel"] = int(channel[2:-1])
-        channel = self.client.get_channel(int(channel[2:-1]))
+        data[str(ctx.guild.id)]["suggestionChannel"] = channel
 
-        embed=discord.Embed(title=f"Set the suggestion channel to {channel.mention}.", colour=0x00ff00)
+        embed=discord.Embed(title=f"Set the suggestion channel to {channel}.", colour=0x00ff00)
         await ctx.send(embed=embed)
 
         await write(data)

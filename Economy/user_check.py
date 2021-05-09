@@ -25,7 +25,7 @@ class Cog(commands.Cog):
         
 
         with open("json/userConfig.json", "w") as output:
-            json.dump(data, output, indent=2)
+            json.dump(data, output)
 
 def setup(client):
     client.add_cog(Cog(client))
