@@ -47,6 +47,6 @@ async def reload(ctx):
     await ctx.message.add_reaction("✅")
 
 try:
-    client.run("") # Put your own token here (Don't share it!)
+    client.run("NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.tYx2TP-JGOMtsmj6nP0rM7BMXQA") # Put your own token here (Don't share it!)
 except ClientException:
     print("Token is invalid. Please enter a new one")

@@ -16,10 +16,10 @@ class Cog(commands.Cog):
         data = await loadJSON()
 
         for guild in self.client.guilds:
-            guild = data[str(guild.id)]
+            guildJson = data[str(guild.id)]
             for member in guild.members:
-                if not guild[str(member.id)]:
-                    guild[str(member.id)] = {
+                if not guildJson[str(member.id)]:
+                    guildJson[str(member.id)] = {
                         "balance": 100
                     }
         
