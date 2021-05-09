@@ -68,6 +68,9 @@ class cog(commands.Cog):
         with open("json/suggestions.json", "w") as file:
             suggestions = json.load(file)
 
+        with open("json/economy.json", "w") as file:
+            eco = json.load(file)
+
         data[guild.id] = {
             "prefix": ["!"],
             "suggestionChannel": None,
@@ -78,7 +81,8 @@ class cog(commands.Cog):
             "pinAmount": None
         }
 
-        file[guild.id] = {}
+        suggestions[guild.id] = {}
+        eco[str(guild.id)] = {}
 
         with open("json/serverConfig.json", "w") as output:
             json.dump(data, output, indent=2)

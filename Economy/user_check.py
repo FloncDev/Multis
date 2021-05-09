@@ -3,7 +3,8 @@ from discord.ext import commands
 import json
 
 async def loadJSON():
-    return json.loads(open("json/userConfig.json", "r").read())
+    with open("json/economy.json", "r") as file:
+        return json.load(file)
 
 class Cog(commands.Cog):
 
@@ -15,17 +16,20 @@ class Cog(commands.Cog):
         data = await loadJSON()
 
         for guild in self.client.guilds:
+            guild = data[str(guild.id)]
             for member in guild.members:
-                try:
-                    balance = data[str(member.id)]["balance"]
-                except:
-                    data[str(member.id)] = {
+                if not guild[str(member.id)]:
+                    guild[str(member.id)] = {
                         "balance": 100
                     }
         
 
         with open("json/userConfig.json", "w") as output:
             json.dump(data, output)
+
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        pass
 
 def setup(client):
     client.add_cog(Cog(client))

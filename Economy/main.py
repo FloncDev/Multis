@@ -7,11 +7,12 @@ import json
 import asyncio
 
 def loadJSON():
-    return json.loads(open("json/userConfig.json", "r").read())
+    with open("json/economy.json", "r") as file:
+        return json.load(file)
 
 def writeJSON(data):
-    with open("json/userConfig.json", "w") as output:
-        json.dump(data, output, indent=2)
+    with open("json/economy.json", "w") as output:
+        json.dump(data, output)
 
 class cog(commands.Cog):
 
