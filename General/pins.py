@@ -37,7 +37,7 @@ class cog(commands.Cog):
                     for i in message.reactions:
                         if i.emoji == "⭐":
                             stars = i.count
-                    if stars <= data[str(payload.guild_id)]["pinAmount"]:
+                    if stars >= int(data[str(payload.guild_id)]["pinAmount"]):
                         try:
                             image = message.attachments[0].proxy_url
                         except:
