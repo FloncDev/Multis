@@ -9,7 +9,7 @@ Not amazing with discord py so just try understand my spaghetti code and have fu
 
  - [x] Per-Server Prefixes
  - [x] Suggest commands
- - [ ] Pins
+ - [x] Pins
  - [ ] Moderation
  - [ ] Upgrade from json to actual db's (Hopefully in cloud)
  - [ ] Currency Conversion
