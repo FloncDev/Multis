@@ -1,4 +1,4 @@
-import asyncio
+import time
 import discord
 from discord import message
 from discord.ext import commands
@@ -25,7 +25,8 @@ class cog(commands.Cog):
             await ctx.send("Cannot find the user.")
             return
 
-        embed = discord.Embed(description=f"Mention: {user.mention}\nName: {user.display_name}#{user.discriminator}\nID: {user.id}\nIs Bot: {user.bot}\nCreated at: {user.created_at}")
+        createdAt = int(user.created_at.timestamp())
+        embed = discord.Embed(description=f"__**Mention:**__ {user.mention}\n__**Name:**__ {user.display_name}#{user.discriminator}\n__**ID:**__ {user.id}\n__**Is Bot:**__ {user.bot}\n__**Created at:**__ <t:{createdAt}:d>")
         embed.set_image(url=user.avatar_url)
         await ctx.send(embed=embed)
 
