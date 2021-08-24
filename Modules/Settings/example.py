@@ -1,9 +1,7 @@
-import discord
+from discord import client
 from discord.ext import commands
-import json
 
-class cog(commands.Cog):
-
+class RENAME_ME(commands.Cog):
     def __init__(self, client):
         self.client = client
 
@@ -11,5 +9,9 @@ class cog(commands.Cog):
     async def on_ready(self):
         pass
 
+    @commands.command()
+    async def test(self, ctx):
+        pass
+
 def setup(client):
-    client.add_cog(cog(client))
+    client.add_cog(RENAME_ME(client))

@@ -1,52 +1,45 @@
-# Library Import
 import discord
-from discord.errors import ClientException
 from discord.ext import commands
+from console import Console
+from dotenv import load_dotenv
 import os
-import json
-import asyncio
 
-# Gets all the servers custom prefixes.
-def getPrefixes(client, message):
-    guild = message.guild.id
-    data = json.loads(open("./json/serverConfig.json", "r").read())
-    return data[str(guild)]["prefix"]
 
-# Sets prefix, intents and the client variable.
-intents = discord.Intents(members=True, guilds=True, emojis=True, messages=True, reactions=True)
-client = commands.Bot(command_prefix=getPrefixes, help_command=None, intents=intents)
+def get_prefix(client, message):
+    return "!"
 
-# Loads all the commands
-def LoadFolder(folder: str):
-    for filename in os.listdir(f"./{folder}"): # Just loads all the commands in the General folder
-        if filename.endswith(".py"):           # To make your own commands just copy the template file.
-            client.load_extension(f"{folder}.{filename[:-3]}")
 
-def UnloadFolder(folder: str):
-    for filename in os.listdir(f"./{folder}"):
+console = Console()
+client = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=discord.Intents.all())
+
+
+def loadModule(module):
+    for filename in os.listdir(f"Modules/{module}"):
         if filename.endswith(".py"):
-            client.unload_extension(f"{folder}.{filename[:-3]}")
+            client.load_extension(f"Modules.{module}.{filename[:-3]}")
 
-for folder in ["Administration", "Economy", "General", "Moderation", "Developer"]:
-    LoadFolder(folder)
+def unloadModule(module):
+    for filename in os.listdir(f"Modules/{module}"):
+        if filename.endswith(".py"):
+            client.unload_extension(f"Modules.{module}.{filename[:-3]}")
 
-# Reloads the bot without restarting it.
+
 @client.command()
 async def reload(ctx):
-    for folder in ["Administration", "Economy", "General", "Moderation", "Developer"]:
+    for i in os.listdir("Modules"):
         try:
-            UnloadFolder(folder)
-        except:
-            pass
-        
-        try:
-            LoadFolder(folder)
-        except:
-            pass
+            unloadModule(i)
+            loadModule(i)
+        except Exception as e:
+            console.error(f"There was an error reloading {i}.\n{e}")
 
-    await ctx.message.add_reaction("✅")
+    console.info("Reload Success.")
+
+for i in os.listdir("Modules"):
+    loadModule(i)
 
 try:
-    client.run("") # Put your own token here (Don't share it!)
-except ClientException:
-    print("Token is invalid. Please enter a new one")
+    load_dotenv()
+    client.run(os.environ.get("TOKEN"))
+except discord.errors.ClientException:
+    console.error("Invalid Token - Please make a '.env' file and put the token in there with the key 'TOKEN'")
