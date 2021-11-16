@@ -9,7 +9,7 @@ import asyncio
 # Gets all the servers custom prefixes.
 def getPrefixes(client, message):
     guild = message.guild.id
-    with open("./json/serverConfig.json", "r") as file
+    with open("./json/serverConfig.json", "r") as file:
         data = json.load(file)
     return data[str(guild)]["prefix"]
 
