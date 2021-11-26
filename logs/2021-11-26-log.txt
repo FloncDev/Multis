@@ -1,0 +1,57 @@
+2021-11-26 17:30:52 [LOG] Loading Events/on_ready.py
+2021-11-26 17:30:52 [LOG] Loading Pins/pin.py
+2021-11-26 17:30:52 [LOG] Loading Suggest/delete.py
+2021-11-26 17:30:52 [LOG] Loading Suggest/suggest.py
+2021-11-26 17:30:53 [LOG] Loading Templates/command.py
+2021-11-26 17:30:53 [LOG] Loading Templates/event.py
+2021-11-26 17:30:53 [LOG] Loading Templates/slash_command.py
+2021-11-26 17:30:55 [INFO] Multis is online!
+2021-11-26 17:34:38 [LOG] Flonc#0001(275709752875548674) Pined message 913845157433061417 in general.
+2021-11-26 17:37:41 [LOG] Flonc#0001(275709752875548674) Pined message 913845404179775499 in general.
+2021-11-26 17:38:10 [LOG] Loading Events/on_ready.py
+2021-11-26 17:38:10 [LOG] Loading Pins/pin.py
+2021-11-26 17:38:10 [LOG] Loading Suggest/delete.py
+2021-11-26 17:38:10 [LOG] Loading Suggest/suggest.py
+2021-11-26 17:38:10 [LOG] Loading Templates/command.py
+2021-11-26 17:38:10 [LOG] Loading Templates/event.py
+2021-11-26 17:38:10 [LOG] Loading Templates/slash_command.py
+2021-11-26 17:38:12 [INFO] Multis is online!
+2021-11-26 17:38:17 [LOG] Flonc#0001(275709752875548674) Pined message 913846145258774548 in #general(716611500801916930).
+2021-11-26 17:38:52 [LOG] Flonc#0001(275709752875548674) Pined message 912129084342022154 in #spam(721282948493738024).
+2021-11-26 18:41:27 [LOG] Loading Events/on_ready.py
+2021-11-26 18:41:27 [LOG] Loading Logging/delete_message.py
+2021-11-26 18:41:27 [LOG] Loading Pins/pin.py
+2021-11-26 18:41:27 [LOG] Loading Suggest/delete.py
+2021-11-26 18:41:27 [LOG] Loading Suggest/suggest.py
+2021-11-26 18:41:27 [LOG] Loading Templates/command.py
+2021-11-26 18:41:27 [LOG] Loading Templates/event.py
+2021-11-26 18:41:27 [LOG] Loading Templates/slash_command.py
+2021-11-26 18:41:29 [INFO] Multis is online!
+2021-11-26 18:42:10 [LOG] Loading Events/on_ready.py
+2021-11-26 18:42:10 [LOG] Loading Logging/delete_message.py
+2021-11-26 18:42:10 [LOG] Loading Pins/pin.py
+2021-11-26 18:42:10 [LOG] Loading Suggest/delete.py
+2021-11-26 18:42:10 [LOG] Loading Suggest/suggest.py
+2021-11-26 18:42:10 [LOG] Loading Templates/command.py
+2021-11-26 18:42:10 [LOG] Loading Templates/event.py
+2021-11-26 18:42:10 [LOG] Loading Templates/slash_command.py
+2021-11-26 18:42:13 [INFO] Multis is online!
+2021-11-26 18:42:34 [LOG] Loading Events/on_ready.py
+2021-11-26 18:42:34 [LOG] Loading Logging/delete_message.py
+2021-11-26 18:42:34 [LOG] Loading Pins/pin.py
+2021-11-26 18:42:34 [LOG] Loading Suggest/delete.py
+2021-11-26 18:42:34 [LOG] Loading Suggest/suggest.py
+2021-11-26 18:42:34 [LOG] Loading Templates/command.py
+2021-11-26 18:42:34 [LOG] Loading Templates/event.py
+2021-11-26 18:42:34 [LOG] Loading Templates/slash_command.py
+2021-11-26 18:42:37 [INFO] Multis is online!
+2021-11-26 18:43:09 [LOG] Loading Events/on_ready.py
+2021-11-26 18:43:09 [LOG] Loading Logging/delete_message.py
+2021-11-26 18:43:09 [LOG] Loading Pins/pin.py
+2021-11-26 18:43:09 [LOG] Loading Suggest/delete.py
+2021-11-26 18:43:09 [LOG] Loading Suggest/suggest.py
+2021-11-26 18:43:09 [LOG] Loading Templates/command.py
+2021-11-26 18:43:09 [LOG] Loading Templates/event.py
+2021-11-26 18:43:09 [LOG] Loading Templates/slash_command.py
+2021-11-26 18:43:12 [INFO] Multis is online!
+2021-11-26 18:43:16 [LOG] Flonc#0001(275709752875548674) deleted message(913862572262953040): a

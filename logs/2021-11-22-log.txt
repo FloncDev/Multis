@@ -1,0 +1,45 @@
+2021-11-22 23:46:19 [LOG] Loading Events/on_ready.py
+2021-11-22 23:46:19 [LOG] Loading Suggest/suggest.py
+2021-11-22 23:46:19 [LOG] Loading Templates/command.py
+2021-11-22 23:46:19 [LOG] Loading Templates/event.py
+2021-11-22 23:46:41 [LOG] Loading Events/on_ready.py
+2021-11-22 23:46:41 [LOG] Loading Suggest/suggest.py
+2021-11-22 23:46:41 [LOG] Loading Templates/command.py
+2021-11-22 23:46:41 [LOG] Loading Templates/event.py
+2021-11-22 23:46:41 [LOG] Loading Templates/slash_command.py
+2021-11-22 23:47:41 [LOG] Loading Events/on_ready.py
+2021-11-22 23:47:41 [LOG] Loading Suggest/suggest.py
+2021-11-22 23:47:41 [LOG] Loading Templates/command.py
+2021-11-22 23:47:41 [LOG] Loading Templates/event.py
+2021-11-22 23:47:41 [LOG] Loading Templates/slash_command.py
+2021-11-22 23:47:44 [INFO] Multis v2 is online!
+2021-11-22 23:48:33 [LOG] Loading Events/on_ready.py
+2021-11-22 23:48:33 [LOG] Loading Suggest/suggest.py
+2021-11-22 23:48:33 [LOG] Loading Templates/command.py
+2021-11-22 23:48:33 [LOG] Loading Templates/event.py
+2021-11-22 23:48:33 [LOG] Loading Templates/slash_command.py
+2021-11-22 23:48:35 [INFO] Multis is online!
+2021-11-22 23:52:08 [LOG] Loading Events/on_ready.py
+2021-11-22 23:52:08 [LOG] Loading Suggest/suggest.py
+2021-11-22 23:52:08 [LOG] Loading Templates/command.py
+2021-11-22 23:52:08 [LOG] Loading Templates/event.py
+2021-11-22 23:52:08 [LOG] Loading Templates/slash_command.py
+2021-11-22 23:52:11 [INFO] Multis is online!
+2021-11-22 23:52:26 [LOG] Loading Events/on_ready.py
+2021-11-22 23:52:26 [LOG] Loading Suggest/suggest.py
+2021-11-22 23:52:26 [LOG] Loading Templates/command.py
+2021-11-22 23:52:26 [LOG] Loading Templates/event.py
+2021-11-22 23:52:26 [LOG] Loading Templates/slash_command.py
+2021-11-22 23:52:28 [INFO] Multis is online!
+2021-11-22 23:57:23 [LOG] Loading Events/on_ready.py
+2021-11-22 23:57:23 [LOG] Loading Suggest/suggest.py
+2021-11-22 23:57:23 [LOG] Loading Templates/command.py
+2021-11-22 23:57:23 [LOG] Loading Templates/event.py
+2021-11-22 23:57:23 [LOG] Loading Templates/slash_command.py
+2021-11-22 23:57:26 [INFO] Multis is online!
+2021-11-22 23:57:42 [LOG] Loading Events/on_ready.py
+2021-11-22 23:57:42 [LOG] Loading Suggest/suggest.py
+2021-11-22 23:57:42 [LOG] Loading Templates/command.py
+2021-11-22 23:57:42 [LOG] Loading Templates/event.py
+2021-11-22 23:57:42 [LOG] Loading Templates/slash_command.py
+2021-11-22 23:57:45 [INFO] Multis is online!
