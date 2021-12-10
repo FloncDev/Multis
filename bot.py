@@ -25,7 +25,7 @@ def LoadFolder(folder: str):
 def UnloadFolder(folder: str):
     for filename in os.listdir(f"./{folder}"):
         if filename.endswith(".py"):
-            client.unload_extension(f"{folder}.{filename[:-3]}")
+                client.unload_extension(f"{folder}.{filename[:-3]}")
 
 for folder in ["Administration", "Economy", "General", "Moderation", "Developer"]:
     LoadFolder(folder)
@@ -47,6 +47,6 @@ async def reload(ctx):
     await ctx.message.add_reaction("✅")
 
 try:
-    client.run("") # Put your own token here (Don't share it!)
+    client.run("NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.5a41n8sfOx-oz_XX58GrJkM3OI0") # Put your own token here (Don't share it!)
 except ClientException:
     print("Token is invalid. Please enter a new one")

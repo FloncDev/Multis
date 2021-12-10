@@ -6,7 +6,7 @@ def loadJson():
         data = json.loads(open("json/serverConfig.json", "r").read())
         return data
 
-class cog(commands.Cog):
+class prefix(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -78,7 +78,8 @@ class cog(commands.Cog):
             "downvoteEmoji": None,
             "economy": False,
             "pinChannel": None,
-            "pinAmount": None
+            "pinAmount": None,
+            "enableLogs": True
         }
 
         suggestions[guild.id] = {}
@@ -95,4 +96,4 @@ class cog(commands.Cog):
             json.dump(data, output, indent=2)
 
 def setup(client):
-    client.add_cog(cog(client))
+    client.add_cog(prefix(client))

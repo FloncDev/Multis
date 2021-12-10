@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands.core import has_permissions
 
-class cog(commands.Cog):
+class purge(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -18,4 +18,4 @@ class cog(commands.Cog):
         await message.delete()
 
 def setup(client):
-    client.add_cog(cog(client))
+    client.add_cog(purge(client))

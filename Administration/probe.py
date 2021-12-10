@@ -4,7 +4,7 @@ from discord import message
 from discord.ext import commands
 from discord.ext.commands.core import has_permissions
 
-class cog(commands.Cog):
+class probe(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -31,4 +31,4 @@ class cog(commands.Cog):
         await ctx.send(embed=embed)
 
 def setup(client):
-    client.add_cog(cog(client))
+    client.add_cog(probe(client))

@@ -16,7 +16,7 @@ def writeJson(pins):
     with open("json/pins.json", "w") as file:
         json.dump(pins, file)
 
-class cog(commands.Cog):
+class pins(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -86,4 +86,4 @@ class cog(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(cog(client))
+    client.add_cog(pins(client))

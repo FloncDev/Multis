@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import json
 
-class cog(commands.Cog):
+class errors(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -14,10 +14,10 @@ class cog(commands.Cog):
         elif isinstance(error, commands.CommandNotFound): output = None
         elif isinstance(error, commands.BotMissingPermissions): output = "The bot doesn not have permission to do this."
         elif isinstance(error, commands.MissingPermissions): output = "You do not have permission to do this."
-        else: output = "An unkown error has occured"
+        else: output = f"An unkown error has occured.\n```{error}```"
 
         if output != None: await ctx.reply(embed=discord.Embed(title=output, colour=0xff0000))
         await ctx.message.add_reaction("❌")
 
 def setup(client):
-    client.add_cog(cog(client))
+    client.add_cog(errors(client))

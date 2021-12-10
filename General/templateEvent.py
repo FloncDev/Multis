@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import json
 
-class cog(commands.Cog):
+class RENAME_ME_EVENT(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -12,4 +12,4 @@ class cog(commands.Cog):
         pass
 
 def setup(client):
-    client.add_cog(cog(client))
+    client.add_cog(RENAME_ME_EVENT(client))

@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class Test(commands.Cog):
+class ready(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -19,4 +19,4 @@ class Test(commands.Cog):
         # await owner.send("Bot is online - v2 BETA")
 
 def setup(client):
-    client.add_cog(Test(client))
+    client.add_cog(ready(client))

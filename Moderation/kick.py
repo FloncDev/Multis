@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands.core import has_permissions
 
-class cog(commands.Cog):
+class kick(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -21,4 +21,4 @@ class cog(commands.Cog):
         await member.kick(reason=f"Kicked by command by {ctx.author} for reason: {reason}")
 
 def setup(client):
-    client.add_cog(cog(client))
+    client.add_cog(kick(client))

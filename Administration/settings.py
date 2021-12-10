@@ -1,4 +1,5 @@
 import discord
+from discord import colour
 from discord.ext import commands
 from discord.ext.commands.core import group
 import json
@@ -13,7 +14,7 @@ async def write(data):
     with open("json/serverConfig.json", "w") as output:
         json.dump(data, output, indent=2)
 
-class cog(commands.Cog):
+class settings(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -22,7 +23,7 @@ class cog(commands.Cog):
     @commands.has_permissions(manage_channels=True)
     async def config(self, ctx):
         if ctx.invoked_subcommand == None:
-            await ctx.send("```diff\n+ Availible config options\n- suggestion_channel\n- upvote\n- downvote\n- economy\n- pin_channel\n- pin_emoji_amount```") # [TO-DO] Make this a small help command showing all availible settings
+            await ctx.send("```diff\n+ Availible config options\n- suggestion_channel\n- upvote\n- downvote\n- economy\n- pin_channel\n- pin_emoji_amount\n- enable_logging```") # [TO-DO] Make this a small help command showing all availible settings
 
     @config.command()
     @commands.has_permissions(manage_channels=True)
@@ -114,5 +115,24 @@ class cog(commands.Cog):
         await write(data)
         await ctx.send(embed=discord.Embed(title=f"Set pin emoji amount to {amount}", colour=0x00ff00))
 
+    @config.command()
+    @commands.has_permissions(administrator=True)
+    async def enable_logging(self, ctx, setting):
+        data, _ = await loadJson()
+        if setting.lower() in ["y", "yes", "true",]:
+            data[str(ctx.guild.id)]["enableLogs"] = True
+            await ctx.send(embed=discord.Embed(title="Enabled logging.", colour=0x00ff00))
+        
+        elif setting.lower() in ["n", "no", "false",]:
+            data[str(ctx.guild.id)]["enableLogs"] = False
+            await ctx.send(embed=discord.Embed(title="Disabled logging.", colour=0x00ff00))
+
+        else:
+            embed=discord.Embed(title=f"Please enter a valid value. (True/False)", colour=0xff0000)
+            await ctx.send(embed=embed)
+            return
+
+        await write(data)
+
 def setup(client):
-    client.add_cog(cog(client))
+    client.add_cog(settings(client))

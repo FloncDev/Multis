@@ -8,18 +8,21 @@
     "downvoteEmoji": null,
     "economy": false,
     "pinChannel": "840276385355268136",
-    "pinAmount": 1
+    "pinAmount": 1,
+    "enableLogs": true
   },
   "716611500256657469": {
     "prefix": [
       "!",
-      "s!"
+      "s!",
+      "S!"
     ],
     "suggestionChannel": "720939526314393610",
     "upvoteEmoji": ":upvote:741753512047935629",
     "downvoteEmoji": ":downvote:741753584344891541",
     "economy": false,
     "pinChannel": "787508205634715679",
-    "pinAmount": 5
+    "pinAmount": 5,
+    "enableLogs": true
   }
 }

@@ -1,6 +1,5 @@
 # Custom
-token/
-token/__init__.py
+discord.py/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

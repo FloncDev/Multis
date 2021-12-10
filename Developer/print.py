@@ -5,7 +5,7 @@ def getJson():
     with open("json/config.json", "r") as file:
         return json.load(file)
 
-class cog(commands.Cog):
+class print(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -26,4 +26,4 @@ class cog(commands.Cog):
             await ctx.send(thing)
 
 def setup(client):
-    client.add_cog(cog(client))
+    client.add_cog(print(client))
