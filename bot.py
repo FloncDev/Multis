@@ -4,8 +4,9 @@ from console import Console
 import os
 import json
 
-with open('config.json') as f:
+with open("config.json", "r") as f:
     config = json.load(f)
+
 console = Console(True)
 client = commands.Bot(command_prefix=config["prefixes"], case_insensitive=True, intents=discord.Intents.all())
 
@@ -18,4 +19,4 @@ for module in os.listdir("Modules"):
 try:
     client.run(config["token"])
 except discord.errors.ClientException:
-    console.error("Invalid Token - Please make a '.env' file and put the token in there with the key 'TOKEN'")
+    console.error("Invalid Token - Please check the config.json file.")

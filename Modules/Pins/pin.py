@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from console import Console
+import json
 
 console = Console(True)
 
@@ -8,13 +9,15 @@ class pin(commands.Cog):
 
     def __init__(self, client):
         self.client = client
+        with open("config.json", "r") as f:
+            self.config = json.load(f)
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
     async def pin(self, ctx):
         originalChannel = self.client.get_channel(ctx.message.reference.channel_id)
         originalMessage = await originalChannel.fetch_message(ctx.message.reference.message_id)
-        pinChannel = self.client.get_channel(787508205634715679)
+        pinChannel = self.client.get_channel(self.config.get("pin_channel"))
 
         try:
             image = originalMessage.attachments[0].proxy_url

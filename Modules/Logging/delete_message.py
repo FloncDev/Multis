@@ -12,7 +12,8 @@ class deleted_messages(commands.Cog):
  
     @commands.Cog.listener()
     async def on_message_delete(self, message):
-        console.log(f"{message.author}({message.author.id}) deleted message({message.id}): {message.content}")
+        if not message.author.bot:
+            console.info(f"Message by {message.author}({message.author.id}) in {message.channel} deleted. Content: {message.content}") 
 
 def setup(client):
     client.add_cog(deleted_messages(client))

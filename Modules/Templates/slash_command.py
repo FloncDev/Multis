@@ -1,13 +1,17 @@
 import discord
 from discord.ext import commands
 from discord.commands import slash_command, Option
+import json
+
+with open('config.json') as f:
+    config = json.load(f)
 
 class RENAME_SLASH(commands.Cog):
 
     def __init__(self, client):
         self.client = client
  
-    @slash_command(guild_ids=[716611500256657469])
+    @slash_command()
     async def slash(self, ctx):
         pass
 

@@ -43,3 +43,25 @@ def delete_suggestion(message_id: int):
         cur = conn.cursor()
         cur.execute("UPDATE suggestions SET deleted=? WHERE id=?", (True, message_id))
         conn.commit()
+
+
+def add_pin(message_id: int, channel_id: int):
+    """Add a pin to the database."""
+    conn = create_connection("pins.db")
+    with conn:
+        cur = conn.cursor()
+        cur.execute("INSERT INTO pins (message_id, channel_id) VALUES (?, ?)", (message_id, channel_id))
+        conn.commit()
+
+def is_pinned(message_id: int):
+    """Check if a message is pinned."""
+    conn = create_connection("pins.db")
+    with conn:
+        cur = conn.cursor()
+        cur.execute("SELECT message_id FROM pins WHERE message_id=?", (message_id,))
+        try:
+            results = cur.fetchall()[0]
+            (a,) = results
+            return True
+        except IndexError:
+            return False

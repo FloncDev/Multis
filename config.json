@@ -1,4 +1,11 @@
 {
-    "token": "NzkyODAxODIyNTk0MzAxOTUy.X-jAPA.5a41n8sfOx-oz_XX58GrJkM3OI0",
-    "prefixes": ["s!"]
+    "token": "",
+    "prefixes": ["s!"],
+    "guild_id": 716611500256657469,
+    "suggestion_channel": 720939526314393610,
+    "upvote_emoji": "<:upvote:912496476440117278>",
+    "downvote_emoji": "<:downvote:912739814728687647>",
+    "delete_emoji": "<:delete:912496536959717407>",
+    "pin_channel": 787508205634715679,
+    "pin_amount": 1
 }
