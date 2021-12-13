@@ -35,7 +35,7 @@ class Console:
             filename = now.strftime("./logs/%Y-%m-%d")+"-log.txt"
             logTime = now.strftime('%Y-%m-%d %H:%M:%S')
 
-            with open(filename, "a+") as f:
+            with open(filename, "a") as f:
                 f.write(f"{logTime} [{type}] {toLog}\n")
 
     def log(self, toLog: str) -> None:
@@ -85,16 +85,3 @@ class Console:
             seconds = time.getTime()
             self.toFile(f"Timer {timerName} logged at {seconds}.", "TIME")
             return seconds
-
-if __name__ == "__main__":
-    console = Console(True)
-    console.clear()
-    console.time("pogger")
-    console.log("Hello World")
-    console.info("Hello World")
-    time.sleep(2)
-    console.timeLog("pogger")
-    time.sleep(1)
-    console.warn("Hello World")
-    console.error("Hello, World")
-    console.timeEnd("pogger")
