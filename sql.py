@@ -44,6 +44,19 @@ def delete_suggestion(message_id: int):
         cur.execute("UPDATE suggestions SET deleted=? WHERE id=?", (True, message_id))
         conn.commit()
 
+def is_deleted(message_id: int):
+    """Check if a message is deleted."""
+    conn = create_connection("suggestions.db")
+    with conn:
+        cur = conn.cursor()
+        cur.execute("SELECT deleted FROM suggestions WHERE id=?", (message_id,))
+        try:
+            results = cur.fetchall()[0]
+            (a,) = results
+            return a
+        except IndexError:
+            return None
+
 
 def add_pin(message_id: int, channel_id: int):
     """Add a pin to the database."""
