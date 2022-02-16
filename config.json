@@ -1,5 +1,5 @@
 {
-    "token": "token",
+    "token": null,
     "prefixes": ["!"],
     "guild_id": null,
     "suggestion_channel": null,
