@@ -4,7 +4,7 @@ from discord.commands import slash_command, Option
 import json
 from console import Console
 import sql
-from datetime import datetime
+# from datetime import datetime
 
 console = Console(True)
 with open('config.json') as f:
@@ -22,7 +22,7 @@ class suggest(commands.Cog):
 
         embed = discord.Embed(description=suggestion, color=member.colour)
         embed.set_author(name=member, icon_url=member.avatar.url)
-        embed.timestamp = datetime.utcnow()
+        # embed.timestamp = datetime.utcnow()
 
         message = await suggestionChannel.send(embed=embed)
         await ctx.respond(message.jump_url, ephemeral=True)

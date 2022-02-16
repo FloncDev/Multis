@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Any
 import rich
 from rich.table import Table
 import time
@@ -38,26 +39,29 @@ class Console:
             with open(filename, "a") as f:
                 f.write(f"{logTime} [{type}] {toLog}\n")
 
-    def log(self, toLog: str) -> None:
+    def log(self, *toLog: Any) -> None:
         grid = self._init_grid()
-        grid.add_row(self._get_time(), toLog)
+        grid.add_row(self._get_time(), " ".join(map(str, toLog)))
         rich.print(grid)
         self.toFile(toLog, "LOG")
 
-    def info(self, toLog: str) -> None:
+    def info(self, *toLog: Any) -> None:
         grid = self._init_grid()
+        toLog = " ".join(map(str, toLog))
         grid.add_row(self._get_time(), f"[white on cyan] INFO [/white on cyan] [cyan bold]{toLog}[/cyan bold]")
         rich.print(grid)
         self.toFile(toLog, "INFO")
 
-    def warn(self, toWarn: str) -> None:
+    def warn(self, *toWarn: Any) -> None:
         grid = self._init_grid()
+        toWarn = " ".join(map(str, toWarn))
         grid.add_row(self._get_time(), f"[white on orange_red1] WARN [/white on orange_red1] [yellow]{toWarn}[/yellow]")
         rich.print(grid)
         self.toFile(toWarn, "WARN")
 
-    def error(self, toError: str) -> None:
+    def error(self, *toError: Any) -> None:
         grid = self._init_grid()
+        toError = " ".join(map(str, toError))
         grid.add_row(self._get_time(), f"[white on red] ERROR [/white on red] [red bold]{toError}[/red bold]")
         rich.print(grid)
         self.toFile(toError, "ERROR")

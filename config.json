@@ -1,11 +1,11 @@
 {
-    "token": "",
+    "token": "ODc4NjI4OTQ5MjY0MDcyNzQ0.YSD8-Q.fJgSdlswkrtONqNwO6PdEV4GCd0",
     "prefixes": ["s!"],
-    "guild_id": 716611500256657469,
-    "suggestion_channel": 720939526314393610,
-    "upvote_emoji": "<:upvote:912496476440117278>",
-    "downvote_emoji": "<:downvote:912739814728687647>",
-    "delete_emoji": "<:delete:912496536959717407>",
-    "pin_channel": 787508205634715679,
+    "guild_id": 771864800913391646,
+    "suggestion_channel": 808489222641811468,
+    "upvote_emoji": ":star:",
+    "downvote_emoji": ":x:",
+    "delete_emoji": ":eyes:",
+    "pin_channel": 808489222641811468,
     "pin_amount": 1
 }

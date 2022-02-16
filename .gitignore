@@ -1,2 +1,4 @@
 **/__pycache__/
 .vscode/
+/Modules/Reaction-Roles/
+/logs/*

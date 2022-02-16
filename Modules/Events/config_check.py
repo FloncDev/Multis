@@ -14,10 +14,17 @@ class config_check(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
+        keys = []
         for key in self.config:
             if not self.config.get(key):
-                console.error(f"{key} is not set in config.json")
-                await self.client.close()
+                keys.append(key)
+
+        if len(keys) == 1:
+            console.error(f"{key} is not set in config.json")
+            await self.client.close()
+
+        elif len(keys) > 1:
+            console.error(", ".join(keys) + " are not set in config.json")
 
 def setup(client):
     client.add_cog(config_check(client))
