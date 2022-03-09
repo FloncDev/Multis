@@ -1,0 +1,10 @@
+{
+    "token": null,
+    "guild_id": null,
+    "suggestion_channel": null,
+    "upvote_emoji": null,
+    "downvote_emoji": null,
+    "delete_emoji": null,
+    "pin_channel": null,
+    "pin_amount": null
+}

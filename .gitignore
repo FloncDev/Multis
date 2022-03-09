@@ -2,3 +2,4 @@
 .vscode/
 /Modules/Reaction-Roles/
 /logs/*
+config.json
