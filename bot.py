@@ -18,5 +18,5 @@ for module in os.listdir("Modules"):
 
 try:
     client.run(config["token"])
-except discord.errors.ClientException:
-    console.error("Invalid Token - Please check the config.json file.")
+except discord.errors.ClientException as e:
+    console.error(f"Invalid Token - Please check the config.json file. {str(e)}")
