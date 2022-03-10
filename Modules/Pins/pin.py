@@ -49,8 +49,8 @@ class pin(commands.Cog):
         except:
             await ctx.send("Please reply to a message.")
 
-    @commands.message_command(name="Pin mesas", guild_ids=[771864800913391646])
-    # @permission(discord.has_role("Staff"))
+    @commands.message_command(name="Pin Message", guild_ids=[716611500256657469])
+    @permission(discord.has_role("Staff"))
     async def pin_message(self, ctx, message: discord.Message):
         if not sql.is_pinned(message.id):
             pinChannel = self.client.get_channel(self.config.get("pin_channel"))
