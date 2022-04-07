@@ -6,5 +6,6 @@
     "downvote_emoji": null,
     "delete_emoji": null,
     "pin_channel": null,
-    "pin_amount": null
+    "pin_amount": null,
+    "polls_channel": null
 }
